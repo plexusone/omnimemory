@@ -1,0 +1,73 @@
+site_name: OmniMemory
+site_description: Vendor-neutral memory abstraction layer for Go
+site_url: https://plexusone.github.io/omnimemory
+repo_url: https://github.com/plexusone/omnimemory
+repo_name: plexusone/omnimemory
+
+theme:
+  name: material
+  custom_dir: docs/overrides
+  palette:
+    # Dark mode first (PlexusOne default)
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+
+extra_css:
+  - https://plexusone.dev/css/plexusone-mkdocs.css
+  - stylesheets/plexusone.css
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Installation: getting-started/installation.md
+      - Quick Start: getting-started/quickstart.md
+      - Configuration: getting-started/configuration.md
+  - Providers:
+      - Overview: providers/index.md
+      - In-Memory: providers/memory.md
+      - PostgreSQL: providers/postgres.md
+      - KVS: providers/kvs.md
+      - Twilio Memory: providers/twilio.md
+  - Features:
+      - Semantic Search: features/search.md
+      - Multi-Tenancy: features/multitenancy.md
+      - Embeddings: features/embeddings.md
+      - Fallback & Recovery: features/fallback.md
+  - Architecture: architecture.md
+  - Testing: testing.md
+  - API Reference: https://pkg.go.dev/github.com/plexusone/omnimemory
+  - Releases:
+      - Changelog: releases/changelog.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/plexusone/omnimemory
