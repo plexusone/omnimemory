@@ -10,6 +10,7 @@ OmniMemory uses a provider architecture that allows pluggable storage backends. 
 | [PostgreSQL](postgres.md) | `provider/postgres` | Production with pgvector |
 | [KVS](kvs.md) | `provider/kvs` | Flexible key-value backends |
 | [AWS DynamoDB](aws.md) | External: `omni-aws` | Serverless, auto-scaling |
+| [mem0](mem0.md) | External: `mem0-go` | Managed memory service |
 | [Twilio](twilio.md) | External: `omni-twilio` | Twilio Memory API |
 
 ## Provider Interface
@@ -80,6 +81,12 @@ Use **AWS DynamoDB** for serverless, auto-scaling storage:
     "table_name": "omnimemory",
     "region":     "us-east-1",
 }}
+```
+
+Use **mem0** for managed memory with automatic embeddings:
+
+```go
+{Name: core.ProviderNameMem0, APIKey: os.Getenv("MEM0_API_KEY")}
 ```
 
 Use **Twilio Memory** for managed semantic memory:

@@ -55,6 +55,7 @@ nav:
       - PostgreSQL: providers/postgres.md
       - KVS: providers/kvs.md
       - AWS: providers/aws.md
+      - mem0: providers/mem0.md
       - Twilio Memory: providers/twilio.md
   - Features:
       - Semantic Search: features/search.md
