@@ -115,6 +115,7 @@ func main() {
 | KVS + SQLite | `provider/kvs` | Local persistence, no server |
 | KVS + Redis | `provider/kvs` | Distributed, shared state |
 | PostgreSQL | `provider/postgres` | Production with pgvector |
+| AWS DynamoDB | [omni-aws](https://github.com/plexusone/omni-aws) | Serverless, auto-scaling |
 | mem0 | [mem0-go](https://github.com/plexusone/mem0-go) | mem0 hosted API |
 | Twilio | [omni-twilio](https://github.com/plexusone/omni-twilio) | Twilio Memory API |
 
@@ -175,6 +176,24 @@ client, _ := omnimemory.NewClient(core.ClientConfig{
     Providers: []core.ProviderConfig{
         {Name: core.ProviderNamePostgres, Options: map[string]any{
             "connection_string": os.Getenv("DATABASE_URL"),
+        }},
+    },
+})
+```
+
+### AWS DynamoDB (Serverless)
+
+Fully managed, serverless with automatic scaling and TTL support.
+
+```go
+import _ "github.com/plexusone/omni-aws/omnimemory/dynamodb"
+
+client, _ := omnimemory.NewClient(core.ClientConfig{
+    Providers: []core.ProviderConfig{
+        {Name: core.ProviderNameAWSDynamoDB, Options: map[string]any{
+            "table_name":   "omnimemory",
+            "region":       "us-east-1",
+            "create_table": true, // Auto-create for development
         }},
     },
 })
