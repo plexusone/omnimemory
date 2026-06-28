@@ -113,6 +113,7 @@ func main() {
 |----------|---------|----------|
 | In-Memory | `provider/memory` | Testing, development |
 | KVS + SQLite | `provider/kvs` | Local persistence, no server |
+| KVS + Redis | `provider/kvs` | Distributed, shared state |
 | PostgreSQL | `provider/postgres` | Production with pgvector |
 | mem0 | [mem0-go](https://github.com/plexusone/mem0-go) | mem0 hosted API |
 | Twilio | [omni-twilio](https://github.com/plexusone/omni-twilio) | Twilio Memory API |
@@ -130,6 +131,29 @@ import (
 )
 
 store, _ := sqlite.New(sqlite.Config{Path: "memories.db"})
+
+client, _ := omnimemory.NewClient(core.ClientConfig{
+    Providers: []core.ProviderConfig{
+        {Name: core.ProviderNameKVS, Options: map[string]any{
+            "store": store,
+        }},
+    },
+})
+```
+
+### Redis (Distributed)
+
+Shared state across multiple instances. Good for horizontally scaled applications.
+
+```go
+import (
+    "github.com/plexusone/omnimemory"
+    "github.com/plexusone/omnimemory/core"
+    _ "github.com/plexusone/omnimemory/provider/kvs"
+    "github.com/plexusone/omnistorage-core/kvs/backend/redis"
+)
+
+store, _ := redis.New(redis.Config{Addr: "localhost:6379"})
 
 client, _ := omnimemory.NewClient(core.ClientConfig{
     Providers: []core.ProviderConfig{
@@ -219,6 +243,7 @@ client, _ := omnimemory.NewClient(core.ClientConfig{
 - [omnillm-core](https://github.com/plexusone/omnillm-core) - Unified LLM SDK
 - [omni-twilio](https://github.com/plexusone/omni-twilio) - Twilio adapters including Memory provider
 - [omnistorage-core](https://github.com/plexusone/omnistorage-core) - Storage abstraction for KVS provider
+- [omni-aws](https://github.com/plexusone/omni-aws) - AWS adapters including S3 object storage
 
 ## License
 
