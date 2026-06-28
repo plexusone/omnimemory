@@ -1,0 +1,63 @@
+{
+  "irVersion": "1.0",
+  "project": "omnimemory",
+  "repository": "https://github.com/plexusone/omnimemory",
+  "versioning": "semver",
+  "commitConvention": "conventional",
+  "maintainers": ["plexusone"],
+  "releases": [
+    {
+      "version": "v0.1.0",
+      "date": "2024-06-27",
+      "highlights": [
+        { "description": "Vendor-neutral memory abstraction layer for Go with multi-provider support" },
+        { "description": "Semantic search via vector embeddings with pluggable embedders" },
+        { "description": "Built-in multi-tenancy with strict tenant and subject isolation" }
+      ],
+      "added": [
+        { "description": "Core `Provider` interface with CRUD and semantic operations (Add, Get, Update, Delete, List, Search, Recall)", "commit": "9b06477" },
+        { "description": "Memory types: observation, fact, preference, summary, trait, relationship", "commit": "9b06477" },
+        { "description": "Memory scopes: user, agent, tenant, team, session, domain", "commit": "9b06477" },
+        { "description": "Multi-provider client with automatic fallback support", "commit": "9b06477" },
+        { "description": "Provider registry with priority-based selection", "commit": "9b06477" },
+        { "description": "Embedder interface with OmniLLM integration for semantic search", "commit": "9b06477" },
+        { "description": "Context-based isolation with TenantID, SubjectID, SessionID fields", "commit": "9b06477" },
+        { "description": "Conformance test suite (`core/providertest`) for validating provider implementations", "commit": "d87e396" },
+        { "description": "Ent ORM schema for PostgreSQL with pgvector embedding column", "commit": "4e95b74" },
+        { "description": "HNSW indexing for efficient vector similarity search", "commit": "4e95b74" },
+        { "description": "In-memory provider for testing and development", "commit": "53f1063" },
+        { "description": "KVS provider wrapping omnistorage-core ListableStore", "commit": "fb989bc" },
+        { "description": "PostgreSQL provider with native pgvector similarity search", "commit": "6388bf8" },
+        { "description": "Provider stubs for Mem0, Graphiti, and Twilio", "commit": "435bfda" },
+        { "description": "Package entry point with re-exports and convenience constructors", "commit": "c1491fa" }
+      ],
+      "fixed": [
+        { "description": "Context parameter usage in client fallback method", "commit": "9991118" },
+        { "description": "Subject isolation enforcement in memory provider", "commit": "53f1063" }
+      ],
+      "tests": [
+        { "description": "Unit tests for core types, embedder, and registry", "commit": "31c3e06" },
+        { "description": "Conformance tests for in-memory and KVS providers", "commit": "31c3e06" }
+      ],
+      "documentation": [
+        { "description": "MkDocs documentation site with PlexusOne theme", "commit": "af545f1" },
+        { "description": "Getting started guides: installation, quickstart, configuration", "commit": "af545f1" },
+        { "description": "Provider documentation: memory, postgres, kvs, twilio", "commit": "af545f1" },
+        { "description": "Feature guides: semantic search, multi-tenancy, embeddings, fallback", "commit": "af545f1" },
+        { "description": "Architecture overview and testing guide", "commit": "af545f1" },
+        { "description": "README with badges, quick start, and provider overview", "commit": "e5300c5" },
+        { "description": "v0.1.0 release notes", "commit": "e5300c5" }
+      ],
+      "dependencies": [
+        { "description": "`entgo.io/ent` for PostgreSQL ORM", "commit": "488a692" },
+        { "description": "`github.com/pgvector/pgvector-go` for vector type support", "commit": "488a692" },
+        { "description": "`github.com/plexusone/omnistorage-core` for KVS backend", "commit": "488a692" }
+      ],
+      "build": [
+        { "description": "GitHub Actions workflows for CI, lint, and security scanning", "commit": "d070d55" },
+        { "description": "golangci-lint configuration", "commit": "d070d55" },
+        { "description": "Dependabot configuration for Go modules", "commit": "d070d55" }
+      ]
+    }
+  ]
+}
