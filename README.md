@@ -32,14 +32,14 @@ Vendor-neutral memory abstraction layer for Go. Store and retrieve semantic memo
 
 ## Features
 
-- **Multi-Provider Support**: PostgreSQL+pgvector, In-memory, KVS, Twilio Memory API
-- **Unified API**: Same interface across all providers
-- **Semantic Search**: Vector similarity search with configurable embeddings
-- **Multi-Tenancy**: Built-in tenant and subject isolation
-- **Memory Scopes**: User, agent, tenant, team, session, domain
-- **Memory Types**: Observation, fact, preference, summary, trait, relationship
-- **Fallback Support**: Automatic failover to backup providers
-- **Conformance Tests**: Validate provider implementations
+- 🔌 **Multi-Provider Support**: PostgreSQL+pgvector, In-memory, KVS, Twilio Memory API
+- 🎯 **Unified API**: Same interface across all providers
+- 🔍 **Semantic Search**: Vector similarity search with configurable embeddings
+- 🏢 **Multi-Tenancy**: Built-in tenant and subject isolation
+- 📍 **Memory Scopes**: User, agent, tenant, team, session, domain
+- 🏷️ **Memory Types**: Observation, fact, preference, summary, trait, relationship
+- 🔄 **Fallback Support**: Automatic failover to backup providers
+- ✅ **Conformance Tests**: Validate provider implementations
 
 ## Installation
 
