@@ -64,13 +64,19 @@ const (
 	ProviderNameMem0     ProviderName = "mem0"
 	ProviderNameGraphiti ProviderName = "graphiti"
 	ProviderNameTwilio   ProviderName = "twilio"
+
+	// AWS providers
+	ProviderNameAWSDynamoDB   ProviderName = "aws-dynamodb"
+	ProviderNameAWSS3         ProviderName = "aws-s3"
+	ProviderNameAWSOpenSearch ProviderName = "aws-opensearch"
 )
 
 // Valid returns true if the provider name is valid.
 func (n ProviderName) Valid() bool {
 	switch n {
 	case ProviderNameMemory, ProviderNamePostgres, ProviderNameKVS,
-		ProviderNameMem0, ProviderNameGraphiti, ProviderNameTwilio:
+		ProviderNameMem0, ProviderNameGraphiti, ProviderNameTwilio,
+		ProviderNameAWSDynamoDB, ProviderNameAWSS3, ProviderNameAWSOpenSearch:
 		return true
 	default:
 		return false
