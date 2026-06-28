@@ -212,6 +212,11 @@ func (c *Client) Providers() []ProviderName {
 
 // withFallback executes an operation with fallback to other providers.
 func (c *Client) withFallback(ctx context.Context, op string, fn func(Provider) (*Memory, error)) (*Memory, error) {
+	// Check for cancellation
+	if err := ctx.Err(); err != nil {
+		return nil, err
+	}
+
 	// Try primary first
 	if provider := c.providers[c.primary]; provider != nil {
 		start := time.Now()
