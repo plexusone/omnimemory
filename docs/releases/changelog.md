@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+No unreleased changes.
+
+## [0.1.0] - 2024-06-27
+
+Initial release.
+
 ### Added
 
 - Core types and provider interface
@@ -24,22 +30,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Ent schema for PostgreSQL storage
 - MkDocs documentation site
 
-### Changed
-
-- N/A
-
 ### Fixed
 
 - Context parameter usage in client fallback
 - Subject isolation in memory provider
 
-### Removed
-
-- N/A
-
-## Version History
-
-This is the initial release. Future versions will be documented below.
+[0.1.0]: https://github.com/plexusone/omnimemory/releases/tag/v0.1.0
 
 ---
 
