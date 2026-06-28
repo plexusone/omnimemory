@@ -112,23 +112,60 @@ func main() {
 | Provider | Package | Use Case |
 |----------|---------|----------|
 | In-Memory | `provider/memory` | Testing, development |
+| KVS + SQLite | `provider/kvs` | Local persistence, no server |
 | PostgreSQL | `provider/postgres` | Production with pgvector |
-| KVS | `provider/kvs` | Flexible key-value backends |
+| mem0 | [mem0-go](https://github.com/plexusone/mem0-go) | mem0 hosted API |
 | Twilio | [omni-twilio](https://github.com/plexusone/omni-twilio) | Twilio Memory API |
 
-### PostgreSQL Setup
+### SQLite (Local Persistence)
+
+Single-file database, no server required. Recommended for local development with persistence.
+
+```go
+import (
+    "github.com/plexusone/omnimemory"
+    "github.com/plexusone/omnimemory/core"
+    _ "github.com/plexusone/omnimemory/provider/kvs"
+    "github.com/plexusone/omnistorage-core/kvs/backend/sqlite"
+)
+
+store, _ := sqlite.New(sqlite.Config{Path: "memories.db"})
+
+client, _ := omnimemory.NewClient(core.ClientConfig{
+    Providers: []core.ProviderConfig{
+        {Name: core.ProviderNameKVS, Options: map[string]any{
+            "store": store,
+        }},
+    },
+})
+```
+
+### PostgreSQL + pgvector (Production)
+
+Full vector similarity search with HNSW indexing. Recommended for production.
 
 ```go
 import _ "github.com/plexusone/omnimemory/provider/postgres"
 
-client, err := omnimemory.NewClient(core.ClientConfig{
+client, _ := omnimemory.NewClient(core.ClientConfig{
     Providers: []core.ProviderConfig{
-        {
-            Name: core.ProviderNamePostgres,
-            Options: map[string]any{
-                "connection_string": os.Getenv("DATABASE_URL"),
-            },
-        },
+        {Name: core.ProviderNamePostgres, Options: map[string]any{
+            "connection_string": os.Getenv("DATABASE_URL"),
+        }},
+    },
+})
+```
+
+### mem0 (Hosted API)
+
+Managed memory service with automatic fact extraction.
+
+```go
+import _ "github.com/plexusone/mem0-go/omnimemory"
+
+client, _ := omnimemory.NewClient(core.ClientConfig{
+    Providers: []core.ProviderConfig{
+        {Name: core.ProviderNameMem0, APIKey: os.Getenv("MEM0_API_KEY")},
     },
 })
 ```
@@ -136,14 +173,16 @@ client, err := omnimemory.NewClient(core.ClientConfig{
 ### Multi-Provider with Fallback
 
 ```go
-client, err := omnimemory.NewClient(core.ClientConfig{
+client, _ := omnimemory.NewClient(core.ClientConfig{
     Providers: []core.ProviderConfig{
         // Primary: PostgreSQL
         {Name: core.ProviderNamePostgres, Options: map[string]any{
             "connection_string": os.Getenv("DATABASE_URL"),
         }},
-        // Fallback: In-memory
-        {Name: core.ProviderNameMemory},
+        // Fallback: SQLite
+        {Name: core.ProviderNameKVS, Options: map[string]any{
+            "store": sqliteStore,
+        }},
     },
 })
 ```
