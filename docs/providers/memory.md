@@ -65,13 +65,15 @@ results, err := client.Search(ctx, &core.SearchRequest{
 The in-memory provider requires an embedder for semantic search:
 
 ```go
-embedder, _ := core.NewOmniLLMEmbedder(core.EmbedderConfig{
+import "github.com/plexusone/omnimemory/embedder"
+
+emb, _ := embedder.NewFromConfig(core.EmbedderConfig{
     Provider: "openai",
     APIKey:   os.Getenv("OPENAI_API_KEY"),
     Model:    "text-embedding-3-small",
 })
 
-provider, err := memory.NewProvider(core.ProviderConfig{}, embedder)
+provider, err := memory.NewProvider(core.ProviderConfig{}, emb)
 ```
 
 If no embedder is provided, search operations will return an error.

@@ -12,14 +12,18 @@ type Embedder interface {
 }
 ```
 
-## OmniLLM Integration
+## Built-in Embedders
 
-The recommended embedder uses omnillm-core:
+Construct an embedder from configuration with the `embedder.NewFromConfig`
+factory, which dispatches on the `Provider` field:
 
 ```go
-import "github.com/plexusone/omnimemory/core"
+import (
+    "github.com/plexusone/omnimemory/core"
+    "github.com/plexusone/omnimemory/embedder"
+)
 
-embedder, err := core.NewOmniLLMEmbedder(core.EmbedderConfig{
+emb, err := embedder.NewFromConfig(core.EmbedderConfig{
     Provider: "openai",
     APIKey:   os.Getenv("OPENAI_API_KEY"),
     Model:    "text-embedding-3-small",
@@ -28,6 +32,22 @@ if err != nil {
     log.Fatal(err)
 }
 ```
+
+To skip the factory, construct the OpenAI embedder directly:
+
+```go
+import openaiembedder "github.com/plexusone/omnimemory/embedder/openai"
+
+emb, err := openaiembedder.New(openaiembedder.Config{
+    APIKey:    os.Getenv("OPENAI_API_KEY"),
+    Model:     "text-embedding-3-small",
+    Dimension: 0, // 0 uses the model default
+})
+```
+
+> The factory currently supports the `openai` provider. For other backends
+> (local models, other vendors), implement the `Embedder` interface directly —
+> see [Custom Embedder](#custom-embedder) below.
 
 ### Configuration Options
 
@@ -50,7 +70,7 @@ if err != nil {
 | `text-embedding-ada-002` | 1536 | Legacy model |
 
 ```go
-embedder, _ := core.NewOmniLLMEmbedder(core.EmbedderConfig{
+emb, _ := embedder.NewFromConfig(core.EmbedderConfig{
     Provider: "openai",
     Model:    "text-embedding-3-small",
     APIKey:   os.Getenv("OPENAI_API_KEY"),
@@ -61,13 +81,18 @@ embedder, _ := core.NewOmniLLMEmbedder(core.EmbedderConfig{
 
 Anthropic doesn't provide embedding models directly. Use OpenAI or a local model.
 
-### Local Models (Ollama)
+### Local Models and Other Providers
+
+The built-in factory currently supports only OpenAI. For local models (e.g.
+Ollama) or other vendors, implement the `Embedder` interface directly (see
+[Custom Embedder](#custom-embedder)). An OpenAI-compatible endpoint can also be
+reached by pointing the OpenAI embedder at a custom base URL:
 
 ```go
-embedder, _ := core.NewOmniLLMEmbedder(core.EmbedderConfig{
-    Provider: "ollama",
-    Model:    "nomic-embed-text",
-    BaseURL:  "http://localhost:11434",
+emb, _ := openaiembedder.New(openaiembedder.Config{
+    Model:   "nomic-embed-text",
+    APIKey:  "ollama",
+    BaseURL: "http://localhost:11434/v1",
 })
 ```
 

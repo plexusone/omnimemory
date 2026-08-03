@@ -82,16 +82,19 @@ core.ProviderConfig{
 Configure the embedding model for semantic search:
 
 ```go
-import "github.com/plexusone/omnimemory/core"
+import (
+    "github.com/plexusone/omnimemory/core"
+    "github.com/plexusone/omnimemory/embedder"
+)
 
-embedder, err := core.NewOmniLLMEmbedder(core.EmbedderConfig{
+emb, err := embedder.NewFromConfig(core.EmbedderConfig{
     Provider: "openai",
     APIKey:   os.Getenv("OPENAI_API_KEY"),
     Model:    "text-embedding-3-small",
 })
 
 // Pass to provider
-provider, err := postgres.NewProvider(config, embedder)
+provider, err := postgres.NewProvider(config, emb)
 ```
 
 ### Embedder Options
