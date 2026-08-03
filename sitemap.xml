@@ -2,78 +2,78 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://plexusone.github.io/omnimemory/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-08-03</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnimemory/architecture/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-08-03</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnimemory/testing/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-08-03</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnimemory/features/embeddings/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-08-03</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnimemory/features/fallback/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-08-03</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnimemory/features/multitenancy/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-08-03</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnimemory/features/search/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-08-03</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnimemory/getting-started/configuration/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-08-03</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnimemory/getting-started/installation/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-08-03</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnimemory/getting-started/quickstart/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-08-03</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnimemory/providers/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-08-03</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnimemory/providers/aws/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-08-03</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnimemory/providers/kvs/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-08-03</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnimemory/providers/mem0/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-08-03</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnimemory/providers/memory/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-08-03</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnimemory/providers/postgres/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-08-03</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnimemory/providers/twilio/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-08-03</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnimemory/releases/changelog/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-08-03</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnimemory/releases/v0.1.0/</loc>
-         <lastmod>2026-06-28</lastmod>
+         <lastmod>2026-08-03</lastmod>
     </url>
 </urlset>

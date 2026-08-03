@@ -878,15 +878,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#omnillm-integration" class="md-nav__link">
+  <a href="#built-in-embedders" class="md-nav__link">
     <span class="md-ellipsis">
       
-        OmniLLM Integration
+        Built-in Embedders
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="OmniLLM Integration">
+    <nav class="md-nav" aria-label="Built-in Embedders">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -940,10 +940,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#local-models-ollama" class="md-nav__link">
+  <a href="#local-models-and-other-providers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Local Models (Ollama)
+        Local Models and Other Providers
       
     </span>
   </a>
@@ -1357,15 +1357,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#omnillm-integration" class="md-nav__link">
+  <a href="#built-in-embedders" class="md-nav__link">
     <span class="md-ellipsis">
       
-        OmniLLM Integration
+        Built-in Embedders
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="OmniLLM Integration">
+    <nav class="md-nav" aria-label="Built-in Embedders">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1419,10 +1419,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#local-models-ollama" class="md-nav__link">
+  <a href="#local-models-and-other-providers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Local Models (Ollama)
+        Local Models and Other Providers
       
     </span>
   </a>
@@ -1585,19 +1585,34 @@
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nx">Dimension</span><span class="p">()</span><span class="w"> </span><span class="kt">int</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
 </code></pre></div>
-<h2 id="omnillm-integration">OmniLLM Integration<a class="headerlink" href="#omnillm-integration" title="Permanent link">&para;</a></h2>
-<p>The recommended embedder uses omnillm-core:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="s">&quot;github.com/plexusone/omnimemory/core&quot;</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nx">embedder</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">core</span><span class="p">.</span><span class="nx">NewOmniLLMEmbedder</span><span class="p">(</span><span class="nx">core</span><span class="p">.</span><span class="nx">EmbedderConfig</span><span class="p">{</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nx">Provider</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;openai&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nx">APIKey</span><span class="p">:</span><span class="w">   </span><span class="nx">os</span><span class="p">.</span><span class="nx">Getenv</span><span class="p">(</span><span class="s">&quot;OPENAI_API_KEY&quot;</span><span class="p">),</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nx">Model</span><span class="p">:</span><span class="w">    </span><span class="s">&quot;text-embedding-3-small&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">})</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">}</span>
+<h2 id="built-in-embedders">Built-in Embedders<a class="headerlink" href="#built-in-embedders" title="Permanent link">&para;</a></h2>
+<p>Construct an embedder from configuration with the <code>embedder.NewFromConfig</code>
+factory, which dispatches on the <code>Provider</code> field:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="s">&quot;github.com/plexusone/omnimemory/core&quot;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="s">&quot;github.com/plexusone/omnimemory/embedder&quot;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nx">emb</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">embedder</span><span class="p">.</span><span class="nx">NewFromConfig</span><span class="p">(</span><span class="nx">core</span><span class="p">.</span><span class="nx">EmbedderConfig</span><span class="p">{</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nx">Provider</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;openai&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="nx">APIKey</span><span class="p">:</span><span class="w">   </span><span class="nx">os</span><span class="p">.</span><span class="nx">Getenv</span><span class="p">(</span><span class="s">&quot;OPENAI_API_KEY&quot;</span><span class="p">),</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nx">Model</span><span class="p">:</span><span class="w">    </span><span class="s">&quot;text-embedding-3-small&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">})</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="p">}</span>
 </code></pre></div>
+<p>Embeddings are produced by <a href="https://github.com/plexusone/omnillm-core">omnillm-core</a>
+embedding providers; <code>NewFromConfig</code> adapts an omnillm-core <code>EmbeddingProvider</code>
+to the <code>core.Embedder</code> interface. Any provider omnillm-core registers is
+selectable by name, so omnimemory does not maintain its own per-vendor
+integrations.</p>
+<blockquote>
+<p><code>openai</code> is registered today. As omnillm-core adds providers, they become
+available here through the same <code>Provider</code> field with no changes to omnimemory.
+For a fully custom backend, implement the <code>Embedder</code> interface directly — see
+<a href="#custom-embedder">Custom Embedder</a> below.</p>
+</blockquote>
 <h3 id="configuration-options">Configuration Options<a class="headerlink" href="#configuration-options" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1663,7 +1678,7 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nx">embedder</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">core</span><span class="p">.</span><span class="nx">NewOmniLLMEmbedder</span><span class="p">(</span><span class="nx">core</span><span class="p">.</span><span class="nx">EmbedderConfig</span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nx">emb</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">embedder</span><span class="p">.</span><span class="nx">NewFromConfig</span><span class="p">(</span><span class="nx">core</span><span class="p">.</span><span class="nx">EmbedderConfig</span><span class="p">{</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nx">Provider</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;openai&quot;</span><span class="p">,</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nx">Model</span><span class="p">:</span><span class="w">    </span><span class="s">&quot;text-embedding-3-small&quot;</span><span class="p">,</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nx">APIKey</span><span class="p">:</span><span class="w">   </span><span class="nx">os</span><span class="p">.</span><span class="nx">Getenv</span><span class="p">(</span><span class="s">&quot;OPENAI_API_KEY&quot;</span><span class="p">),</span>
@@ -1671,13 +1686,19 @@
 </code></pre></div>
 <h3 id="anthropic">Anthropic<a class="headerlink" href="#anthropic" title="Permanent link">&para;</a></h3>
 <p>Anthropic doesn't provide embedding models directly. Use OpenAI or a local model.</p>
-<h3 id="local-models-ollama">Local Models (Ollama)<a class="headerlink" href="#local-models-ollama" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nx">embedder</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">core</span><span class="p">.</span><span class="nx">NewOmniLLMEmbedder</span><span class="p">(</span><span class="nx">core</span><span class="p">.</span><span class="nx">EmbedderConfig</span><span class="p">{</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="nx">Provider</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ollama&quot;</span><span class="p">,</span>
+<h3 id="local-models-and-other-providers">Local Models and Other Providers<a class="headerlink" href="#local-models-and-other-providers" title="Permanent link">&para;</a></h3>
+<p>Provider availability is determined by omnillm-core's registry (<code>openai</code> today).
+An OpenAI-compatible endpoint — including a local Ollama server — can be reached
+by setting <code>Endpoint</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nx">emb</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">embedder</span><span class="p">.</span><span class="nx">NewFromConfig</span><span class="p">(</span><span class="nx">core</span><span class="p">.</span><span class="nx">EmbedderConfig</span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="nx">Provider</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;openai&quot;</span><span class="p">,</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nx">Model</span><span class="p">:</span><span class="w">    </span><span class="s">&quot;nomic-embed-text&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nx">BaseURL</span><span class="p">:</span><span class="w">  </span><span class="s">&quot;http://localhost:11434&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">})</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nx">APIKey</span><span class="p">:</span><span class="w">   </span><span class="s">&quot;ollama&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nx">Endpoint</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;http://localhost:11434/v1&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">})</span>
 </code></pre></div>
+<p>For a backend omnillm-core does not support, implement the <code>Embedder</code> interface
+directly (see <a href="#custom-embedder">Custom Embedder</a>).</p>
 <h2 id="using-with-providers">Using with Providers<a class="headerlink" href="#using-with-providers" title="Permanent link">&para;</a></h2>
 <h3 id="postgresql">PostgreSQL<a class="headerlink" href="#postgresql" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="s">&quot;github.com/plexusone/omnimemory/provider/postgres&quot;</span>
