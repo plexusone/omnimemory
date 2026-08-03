@@ -10,17 +10,17 @@
       "version": "v0.2.0",
       "date": "2026-08-02",
       "highlights": [
-        { "description": "First production `core.Embedder` implementation, enabling real semantic search across providers" }
+        { "description": "First production `core.Embedder` implementation, enabling real semantic search backed by omnillm-core embedding providers" }
       ],
       "added": [
-        { "description": "OpenAI embedder (`embedder/openai`) wrapping the openai-go SDK embeddings endpoint with configurable model, dimension, and base URL", "commit": "af75442" },
-        { "description": "`embedder.NewFromConfig` factory that constructs an embedder from `core.EmbedderConfig` by provider name", "commit": "af75442" }
+        { "description": "`embedder.NewFromConfig` factory constructing a `core.Embedder` from `core.EmbedderConfig` by provider name", "commit": "af75442" },
+        { "description": "Embedder adapter over omnillm-core embedding providers, so any provider omnillm-core registers (openai today) is usable without a per-vendor integration in omnimemory", "commit": "af75442" }
       ],
       "tests": [
-        { "description": "Unit tests for the embedder factory dispatch and OpenAI embedder configuration handling", "commit": "4566570" }
+        { "description": "Unit tests for embedder factory dispatch and dimension handling", "commit": "4566570" }
       ],
       "dependencies": [
-        { "description": "`github.com/openai/openai-go` for the OpenAI embeddings API", "commit": "97f4c89" }
+        { "description": "`github.com/plexusone/omnillm-core` for embedding providers", "commit": "af75442" }
       ],
       "documentation": [
         { "description": "Update README shields", "commit": "f858116" }

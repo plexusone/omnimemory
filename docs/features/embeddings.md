@@ -33,21 +33,16 @@ if err != nil {
 }
 ```
 
-To skip the factory, construct the OpenAI embedder directly:
+Embeddings are produced by [omnillm-core](https://github.com/plexusone/omnillm-core)
+embedding providers; `NewFromConfig` adapts an omnillm-core `EmbeddingProvider`
+to the `core.Embedder` interface. Any provider omnillm-core registers is
+selectable by name, so omnimemory does not maintain its own per-vendor
+integrations.
 
-```go
-import openaiembedder "github.com/plexusone/omnimemory/embedder/openai"
-
-emb, err := openaiembedder.New(openaiembedder.Config{
-    APIKey:    os.Getenv("OPENAI_API_KEY"),
-    Model:     "text-embedding-3-small",
-    Dimension: 0, // 0 uses the model default
-})
-```
-
-> The factory currently supports the `openai` provider. For other backends
-> (local models, other vendors), implement the `Embedder` interface directly —
-> see [Custom Embedder](#custom-embedder) below.
+> `openai` is registered today. As omnillm-core adds providers, they become
+> available here through the same `Provider` field with no changes to omnimemory.
+> For a fully custom backend, implement the `Embedder` interface directly — see
+> [Custom Embedder](#custom-embedder) below.
 
 ### Configuration Options
 
@@ -83,18 +78,21 @@ Anthropic doesn't provide embedding models directly. Use OpenAI or a local model
 
 ### Local Models and Other Providers
 
-The built-in factory currently supports only OpenAI. For local models (e.g.
-Ollama) or other vendors, implement the `Embedder` interface directly (see
-[Custom Embedder](#custom-embedder)). An OpenAI-compatible endpoint can also be
-reached by pointing the OpenAI embedder at a custom base URL:
+Provider availability is determined by omnillm-core's registry (`openai` today).
+An OpenAI-compatible endpoint — including a local Ollama server — can be reached
+by setting `Endpoint`:
 
 ```go
-emb, _ := openaiembedder.New(openaiembedder.Config{
-    Model:   "nomic-embed-text",
-    APIKey:  "ollama",
-    BaseURL: "http://localhost:11434/v1",
+emb, _ := embedder.NewFromConfig(core.EmbedderConfig{
+    Provider: "openai",
+    Model:    "nomic-embed-text",
+    APIKey:   "ollama",
+    Endpoint: "http://localhost:11434/v1",
 })
 ```
+
+For a backend omnillm-core does not support, implement the `Embedder` interface
+directly (see [Custom Embedder](#custom-embedder)).
 
 ## Using with Providers
 
