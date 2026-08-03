@@ -9,6 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 No unreleased changes.
 
+## [0.2.0] - 2026-08-02
+
+### Added
+
+- `embedder.NewFromConfig` factory that constructs a `core.Embedder` from configuration by provider name
+- Embedder adapter over omnillm-core embedding providers (OpenAI today), so semantic search works out of the box without per-vendor code in OmniMemory
+
+### Changed
+
+- Embeddings are now produced by omnillm-core providers rather than a bundled integration
+
+[0.2.0]: https://github.com/plexusone/omnimemory/releases/tag/v0.2.0
+
 ## [0.1.0] - 2024-06-27
 
 Initial release.
