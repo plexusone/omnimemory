@@ -57,3 +57,25 @@ func TestNewFromConfig(t *testing.T) {
 		})
 	}
 }
+
+func TestNewFromConfigDimension(t *testing.T) {
+	t.Run("defaults dimension when unset", func(t *testing.T) {
+		emb, err := NewFromConfig(core.EmbedderConfig{Provider: "openai", APIKey: "sk-test"})
+		if err != nil {
+			t.Fatalf("unexpected error: %v", err)
+		}
+		if emb.Dimension() != core.DefaultEmbeddingDimension {
+			t.Errorf("Dimension() = %d, want %d", emb.Dimension(), core.DefaultEmbeddingDimension)
+		}
+	})
+
+	t.Run("honors explicit dimension", func(t *testing.T) {
+		emb, err := NewFromConfig(core.EmbedderConfig{Provider: "openai", APIKey: "sk-test", Dimension: 256})
+		if err != nil {
+			t.Fatalf("unexpected error: %v", err)
+		}
+		if emb.Dimension() != 256 {
+			t.Errorf("Dimension() = %d, want 256", emb.Dimension())
+		}
+	})
+}
