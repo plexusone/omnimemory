@@ -19,7 +19,7 @@ require (
 	github.com/bmatcuk/doublestar v1.3.4 // indirect
 	github.com/go-openapi/inflect v1.0.0 // indirect
 	github.com/google/go-cmp v0.7.0 // indirect
-	github.com/grokify/mogo v0.74.6 // indirect
+	github.com/grokify/mogo v0.74.7 // indirect
 	github.com/grokify/sogo v0.15.0 // indirect
 	github.com/hashicorp/hcl/v2 v2.24.0 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
