@@ -5,7 +5,7 @@ go 1.26.4
 require (
 	entgo.io/ent v0.14.6
 	github.com/google/uuid v1.6.0
-	github.com/jackc/pgx/v5 v5.10.0
+	github.com/jackc/pgx/v5 v5.11.0
 	github.com/pgvector/pgvector-go v0.4.1
 	github.com/plexusone/omnillm-core v0.18.0
 	github.com/plexusone/omnistorage-core v0.5.1
