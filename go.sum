@@ -49,8 +49,8 @@ github.com/pgvector/pgvector-go v0.4.1 h1:Oaj0mC0Ky8KaTweNHHpLwyFlN6a0nUFoo1vgSF
 github.com/pgvector/pgvector-go v0.4.1/go.mod h1:4fSXyjl1TYAIdByAql6JazKWRr2s7J0g4hcRY5cBFCk=
 github.com/plexusone/omnillm-core v0.18.1 h1:Pp/F7L9edGlPtd/OvTq39/H2XttIXRN9K5cf+KcARW0=
 github.com/plexusone/omnillm-core v0.18.1/go.mod h1:qX6C1tOcLoDa6C4sgMUUgjX/zjM9CfBXG/pmnK7lveA=
-github.com/plexusone/omnistorage-core v0.5.1 h1:tvsfTcJln6ZixKL75aE7tMf3yyP94hFDef7ASGlQBe8=
-github.com/plexusone/omnistorage-core v0.5.1/go.mod h1:NADK+H9XbIyYgNL6omq2ugId/uK9EouqF9OrM9BH0d4=
+github.com/plexusone/omnistorage-core v0.5.2 h1:vhascjTnSx3ITquf70d50o/B7cYeIUbJwUwzFVKqwB8=
+github.com/plexusone/omnistorage-core v0.5.2/go.mod h1:YGmwdm36lhgkl+NvQn89QDcteJiC3EGLoUcCO5ZUplg=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/rogpeppe/go-internal v1.15.0 h1:D0RCU5rMAp+SpgkiNdrjfJ+LX4J1M32V2NeCY7EJ6hc=
