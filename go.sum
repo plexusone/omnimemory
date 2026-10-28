@@ -49,8 +49,8 @@ github.com/pgvector/pgvector-go v0.4.1 h1:Oaj0mC0Ky8KaTweNHHpLwyFlN6a0nUFoo1vgSF
 github.com/pgvector/pgvector-go v0.4.1/go.mod h1:4fSXyjl1TYAIdByAql6JazKWRr2s7J0g4hcRY5cBFCk=
 github.com/plexusone/omnillm-core v0.18.1 h1:Pp/F7L9edGlPtd/OvTq39/H2XttIXRN9K5cf+KcARW0=
 github.com/plexusone/omnillm-core v0.18.1/go.mod h1:qX6C1tOcLoDa6C4sgMUUgjX/zjM9CfBXG/pmnK7lveA=
-github.com/plexusone/omnistorage-core v0.5.1 h1:tvsfTcJln6ZixKL75aE7tMf3yyP94hFDef7ASGlQBe8=
-github.com/plexusone/omnistorage-core v0.5.1/go.mod h1:NADK+H9XbIyYgNL6omq2ugId/uK9EouqF9OrM9BH0d4=
+github.com/plexusone/omnistorage-core v0.6.0 h1:6afcMOCllJ/7Bh9LB9y5EpClecbIohjERbTmJufR4k0=
+github.com/plexusone/omnistorage-core v0.6.0/go.mod h1:JIHiAp1NAeEWBv6DIdJ1PJSuYV9I2AjQl/2lmRgF9yU=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/rogpeppe/go-internal v1.15.0 h1:D0RCU5rMAp+SpgkiNdrjfJ+LX4J1M32V2NeCY7EJ6hc=
@@ -68,10 +68,10 @@ github.com/zclconf/go-cty-yaml v1.2.0 h1:GDyL4+e/Qe/S0B7YaecMLbVvAR/Mp21CXMOSiCT
 github.com/zclconf/go-cty-yaml v1.2.0/go.mod h1:9YLUH4g7lOhVWqUbctnVlZ5KLpg7JAprQNgxSZ1Gyxs=
 golang.org/x/mod v0.41.0 h1:qJmnOUb4YB+FsEuM3HcWucdZASCPGhsX6uljO6pog0c=
 golang.org/x/mod v0.41.0/go.mod h1:Ek9pY8RKWXwsWvd3rQiHYtMqkjSUV+s1Rj7j4H5Ur6o=
-golang.org/x/sync v0.23.0 h1:KameEIfc1IkluZyXWLn39Wd4tURc6GbCiISGiZm2bQk=
-golang.org/x/sync v0.23.0/go.mod h1:sUUOizhqBxiL6pEWpqNLUiaJn1ShEbZ6BBqskPbjZm0=
-golang.org/x/text v0.42.0 h1:JbOZXgfeCPU9gacVtYliJqOhD+zhrEqK4LfdpmlUZqI=
-golang.org/x/text v0.42.0/go.mod h1:ojzP1Z+2QtioaF8DTtO8K5q7JWVVYwZKenzujK0Zd0E=
+golang.org/x/sync v0.24.0 h1:iqiDrGoDgyuvAKrhLQthUEzU/R378N78gXbBjxed7oA=
+golang.org/x/sync v0.24.0/go.mod h1:sUUOizhqBxiL6pEWpqNLUiaJn1ShEbZ6BBqskPbjZm0=
+golang.org/x/text v0.43.0 h1:1QivrlhwAsnMOcqgOdl9my7s9OyZl8O5/UGUTJVXoWc=
+golang.org/x/text v0.43.0/go.mod h1:hbSIYA/amXcRXTFSZqh8tWHEoqRvvbKPJ2uz/KU+a+s=
 golang.org/x/tools v0.51.0 h1:k4Xc/1Om9jwkBJBo4NVLMSARBoWtK10mx+W5BnXCeAI=
 golang.org/x/tools v0.51.0/go.mod h1:9eEncMayCV6zRMGhR5eZEC2iBx98qWcF1HZ9Z7wJOoA=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
